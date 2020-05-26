@@ -90,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
             new XPopup.Builder(MainActivity.this).asInputConfirm("输入商家订单号","由于不同商家订单号格式不同，自己输入",binding.shopOrderId.getText(),"",text -> binding.shopOrderId.setText(text)).show();
         });
 
+        binding.transType.setOnClickListener(v->{
+
+        });
+
     }
 
     //设置订单号和创建时间
