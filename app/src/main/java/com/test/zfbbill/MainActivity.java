@@ -19,6 +19,7 @@ import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.listener.OnResultCallbackListener;
+import com.luck.picture.lib.tools.PictureFileUtils;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.lxj.xpopup.interfaces.OnSelectListener;
@@ -206,5 +207,12 @@ public class MainActivity extends AppCompatActivity {
 
     public int dp2px(int dp){
         return (int)(getResources().getDisplayMetrics().density*dp+0.5);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PictureFileUtils.deleteAllCacheDirFile(this);
     }
 }
