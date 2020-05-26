@@ -2,6 +2,7 @@ package com.test.zfbbill;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import com.codbking.widget.DatePickDialog;
 import com.codbking.widget.OnSureLisener;
 import com.codbking.widget.bean.DateType;
+import com.king.zxing.util.CodeUtils;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnInputConfirmListener;
 import com.lxj.xpopup.interfaces.OnSelectListener;
@@ -84,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
             dialog.show();
         });
 
+        binding.shopOrderId.setOnClickListener(v->{
+            new XPopup.Builder(MainActivity.this).asInputConfirm("输入商家订单号","由于不同商家订单号格式不同，自己输入",binding.shopOrderId.getText(),"",text -> binding.shopOrderId.setText(text)).show();
+        });
+
     }
 
     //设置订单号和创建时间
@@ -93,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
         String formatID=new SimpleDateFormat("yyyyMMdd").format(date);
         binding.orderID.setText(formatID+"2200149"+(System.currentTimeMillis()*4));
         //设置商家订单号
-
+        binding.shopOrderId.setText(formatID+StringRandom.getStringRandom(8));
+        binding.codeID.setText(StringRandom.getNumberRandom(4));
+        Bitmap barCode = CodeUtils.createBarCode(binding.orderID.getText().toString(), 143, 67);
+        binding.code.setImageBitmap(barCode);
     }
 }
