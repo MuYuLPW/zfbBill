@@ -57,6 +57,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true">
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img"
                         android:layout_width="26dp"
                         android:layout_height="26dp"
                         android:src="@mipmap/wps"/>
@@ -181,6 +182,7 @@
                 android:layout_marginTop="11dp"
                 style="@style/style_ll">
                 <TextView
+                    android:id="@+id/shop_type"
                     android:text="商家订单号"
                     style="@style/style_tv1" />
                 <TextView
@@ -193,6 +195,7 @@
                     style="@style/style_tv2" />
             </LinearLayout>
             <RelativeLayout
+                android:id="@+id/coed_view"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="24dp">
