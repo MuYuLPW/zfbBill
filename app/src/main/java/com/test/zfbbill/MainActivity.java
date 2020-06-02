@@ -58,13 +58,13 @@ public class MainActivity extends AppCompatActivity {
     //设置商家订二维码显示
     private void setShopType() {
         if (shopType){
-            binding.transInfo.setVisibility(View.VISIBLE);
-            binding.coedView.setVisibility(View.VISIBLE);
+            binding.transInfo.setVisibility(View.GONE);
+            binding.coedView.setVisibility(View.GONE);
             binding.shopOrderId.setVisibility(View.VISIBLE);
             binding.shopOrderDes.setVisibility(View.GONE);
         }else {
-            binding.transInfo.setVisibility(View.GONE);
-            binding.coedView.setVisibility(View.GONE);
+            binding.transInfo.setVisibility(View.VISIBLE);
+            binding.coedView.setVisibility(View.VISIBLE);
             binding.shopOrderId.setVisibility(View.GONE);
             binding.shopOrderDes.setVisibility(View.VISIBLE);
         }
